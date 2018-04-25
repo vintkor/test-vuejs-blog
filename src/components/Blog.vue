@@ -20,21 +20,16 @@
 </template>
 
 <script>
+  import PostServise from '../services/PostServise'
   export default {
     name: "blog",
     data() {
       return {
-        posts: [
-          {
-            id: 1,
-            title: 'Test title 1'
-          },
-          {
-            id: 2,
-            title: 'Test title 2'
-          }
-        ]
+        posts: []
       }
+    },
+    created(){
+      this.posts = PostServise.posts
     }
   }
 </script>

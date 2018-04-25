@@ -40,6 +40,7 @@
     &__logo {
       width: 80px;
       position: relative;
+      margin-bottom: 30px;
     }
   }
 </style>

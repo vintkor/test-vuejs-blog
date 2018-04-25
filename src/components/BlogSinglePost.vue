@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <h5 class="card-header">#{{ productId }}</h5>
+          <h5 class="card-header">#{{ post.id }} {{ post.title }}</h5>
           <div class="card-body">
-            <p class="card-text">{{ postTitle }}</p>
+            <p class="card-text">{{ post.text }}</p>
           </div>
         </div>
         <br>
@@ -15,24 +15,18 @@
 </template>
 
 <script>
-    export default {
-        name: "blogSinglePost",
-        props: {
-          title: {
-            type: String,
-            required: true
-          }
-        },
-        data(){
-          return {
-            productId: this.$route.params.id,
-            postTitle: this.title
-          }
-        },
-        created(){
-            // this.post = props.post
+  import PostServise from '../services/PostServise'
+  export default {
+      name: "blogSinglePost",
+      data(){
+        return {
+          post: []
         }
-    }
+      },
+      created(){
+          this.post = PostServise.getPostById(this.$route.params.id)
+      }
+  }
 </script>
 
 <style scoped lang="scss">
